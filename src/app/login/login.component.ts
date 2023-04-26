@@ -21,43 +21,26 @@ export class LoginComponent {
   paciente!: Pacientes;
   laboratorio!: Laboratorios;
   componentePrincipal!:AppComponent
- 
+
   constructor(private service:LoginService, private router:Router ){
-   
+
   }
     impimirEnConsola(username:String, password:string, area:String){
-      
-    }    
 
-    traerUsuario(username:string, password:String, area:String):void{
+    }
+
+    traerUsuario(username:string, password:string, area:string):void{
       this.login=new Login(username,password,area);
       console.log("Hola tu eres:" +  this.login.getUserName() + ", password: " + this.login.getPassword() + ", en el area: " + this.login.getArea());
 
       this.service.getLogin(this.login).subscribe((resp:any)=>{
-        console.log(resp);        
-        this.redireccionar(resp,area);
+        console.log(resp);
+        localStorage.setItem("usuario",JSON.stringify(resp));
+        localStorage.setItem("area",area);
+        this.router.navigate(["homepage"])
       },err=>{
-          this.mostrarAlert=true;        
+          this.mostrarAlert=true;
         }
       );
-      
-      
-    }
-    redireccionar(resp:any, area:String):void{
-      if(resp==null){
-        this.mostrarAlert=true;
-      }
-      if(area=="1"){
-        this.administrador=resp;
-        console.log(this.administrador.email)
-        this.router.navigate(["areaAdministrador"])        
-      }else if(area=="2"){
-        this.medico=resp;
-        console.log(this.medico.email)
-      }else if(area=="3"){
-        this.paciente=resp;
-      }else if(area=="4"){
-       this.laboratorio=resp;
-      }
     }
 }

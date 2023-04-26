@@ -11,7 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { CargaDatosComponent } from './carga-datos/carga-datos.component'
 import {LoginService} from './Service/login.service';
 import { AreaAdministradorComponent } from './area-administrador/area-administrador.component';
-import { EspacioAdminComponent } from './area-administrador/espacio-admin/espacio-admin.component'
+import { EspacioAdminComponent } from './area-administrador/espacio-admin/espacio-admin.component';
+import { ManagerHomepageComponent } from './manager-homepage/manager-homepage.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EspacioAdminComponent } from './area-administrador/espacio-admin/espaci
     ListarComponent,
     CargaDatosComponent,
     AreaAdministradorComponent,
-    EspacioAdminComponent
+    EspacioAdminComponent,
+    ManagerHomepageComponent
     
   ],
   imports: [
