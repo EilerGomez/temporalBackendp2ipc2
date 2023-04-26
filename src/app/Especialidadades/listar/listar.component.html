@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Especialidades</h3>
+            <table class="table table-hover">
+                <thead>
+                    <th>IdEspecialidad</th>
+                    <th>idMedico</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>ACCIONES</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let especialidades1 of especialidades" class="text-center">
+                        <td>{{especialidades1.idEspecialidad}}</td>
+                        <td>{{especialidades1.idMedico}}</td>
+                        <td>{{especialidades1.precio}}</td>
+                        <td>{{especialidades1.estado}}</td>
+                        <td>
+                            <button class="btn btn-warning">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
